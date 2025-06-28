@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Made Pickles & Snacks</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .main-content {
+            max-width: 900px;
+            margin: 32px auto 0 auto;
+            padding: 24px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(160,90,44,0.07);
+        }
+
+        .contact-us-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-us-container h2 {
+            text-align: center;
+            color: #a05a2c;
+            margin-bottom: 24px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #7c4a1e;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #f7c873;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #fffbe7;
+            color: #333;
+            transition: border 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #a05a2c;
+            outline: none;
+        }
+
+        .contact-form button[type="submit"] {
+            background: #a05a2c;
+            color: #fffbe7;
+            border: none;
+            padding: 12px 0;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            background: #f7c873;
+            color: #a05a2c;
+        }
+
+        .contact-details {
+            background: #f7c873;
+            padding: 18px 20px;
+            border-radius: 7px;
+            color: #7c4a1e;
+            font-size: 1rem;
+            box-shadow: 0 1px 4px rgba(160,90,44,0.06);
+        }
+
+        .contact-details p {
+            margin: 8px 0;
+        }
+        @media (max-width: 600px) {
+            .main-content, .header-content, .nav-content {
+                max-width: 98vw;
+                padding: 10px;
+            }
+            .contact-us-container {
+                padding: 0 4px;
+            }
+            .site-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pickle-bg"></div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div>
+                    <h1 class="site-title">Home Made Pickles & Snacks</h1>
+                    <p class="tagline">Taste the Best, Straight from Tradition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item" onclick="route('home')">🏠 Home</a>
+            <a href="#" class="nav-item" onclick="route('veg-pickles')">🥒 Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('non-veg-pickles')">🍖 Non-Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('snacks')">🍿 Snacks</a>
+            <a href="#" class="nav-item" onclick="route('cart')">🛒 Cart</a>
+            <a href="#" class="nav-item" onclick="route('login')">🔐 Login</a>
+            <a href="#" class="nav-item" onclick="route('signup')">📝 Sign Up</a>
+            <a href="#" class="nav-item" onclick="route('contact')">📞 Contact Us</a>
+            <a href="#" class="nav-item" onclick="route('about')">ℹ️ About Us</a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="contact-us-container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-details">
+                <p><strong>Email:</strong> info@pickleparadise.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Address:</strong> 123, Pickle Street, Hyderabad, India</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Pickle Paradise | For Pickle Lovers</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

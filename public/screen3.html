@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Made Pickles & Snacks</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .img1 {
+            background-image: url("/Images/snack1.jpg");
+        }
+
+        .img2 {
+            background-image: url("/Images/snack2.jpg");
+        }
+
+        .img3 {
+            background-image: url("/Images/snack3.jpg");
+        }
+    </style>
+</head>
+<body>
+    <div class="pickle-bg"></div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div>
+                    <h1 class="site-title">Home Made Pickles & Snacks</h1>
+                    <p class="tagline">Taste the Best, Straight from Tradition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item" onclick="route('home')">🏠 Home</a>
+            <a href="#" class="nav-item" onclick="route('veg-pickles')">🥒 Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('non-veg-pickles')">🍖 Non-Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('snacks')">🍿 Snacks</a>
+            <a href="#" class="nav-item" onclick="route('cart')">🛒 Cart</a>
+            <a href="#" class="nav-item" onclick="route('login')">🔐 Login</a>
+            <a href="#" class="nav-item" onclick="route('signup')">📝 Sign Up</a>
+            <a href="#" class="nav-item" onclick="route('contact')">📞 Contact Us</a>
+            <a href="#" class="nav-item" onclick="route('about')">ℹ️ About Us</a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image img1"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Mango Pickle - ₹150</h3>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image img2"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Mango Pickle - ₹150</h3>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image img3"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Mango Pickle - ₹150</h3>
+                    <br>
+                    <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="success-message" id="successMessage">
+            Added to cart successfully!
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Pickle Paradise | For Pickle Lovers</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Made Pickles & Snacks</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .main-content {
+            max-width: 900px;
+            margin: 32px auto 32px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(160, 90, 44, 0.07);
+            padding: 32px 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            background: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #f0e0b0;
+        }
+
+        th {
+            background: #fff3d1;
+            color: #a05a2c;
+            font-size: 1.1rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        input[type="number"] {
+            padding: 5px 8px;
+            border: 1px solid #e0c28a;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 60px;
+            background: #fffbe7;
+        }
+
+        button {
+            background: #f7c873;
+            color: #7c4a1e;
+            border: none;
+            border-radius: 6px;
+            padding: 7px 16px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        button:hover,
+        button:focus {
+            background: #a05a2c;
+            color: #fff;
+        }
+
+        .checkout-btn {
+            display: block;
+            margin: 0 auto;
+            background: #a05a2c;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 12px 32px;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(160, 90, 44, 0.07);
+            transition: background 0.2s;
+        }
+
+        .checkout-btn:hover,
+        .checkout-btn:focus {
+            background: #7c4a1e;
+        }
+
+        .total-row td {
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: #fffbe7;
+            color: #a05a2c;
+        }
+
+        @media (max-width: 600px) {
+
+            .main-content,
+            .header-content,
+            .nav-content {
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            table,
+            th,
+            td {
+                font-size: 0.95rem;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                font-size: 1rem;
+                padding: 12px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pickle-bg"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div>
+                    <h1 class="site-title">Home Made Pickles & Snacks</h1>
+                    <p class="tagline">Taste the Best, Straight from Tradition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item" onclick="route('home')">🏠 Home</a>
+            <a href="#" class="nav-item" onclick="route('veg-pickles')">🥒 Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('non-veg-pickles')">🍖 Non-Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('snacks')">🍿 Snacks</a>
+            <a href="#" class="nav-item" onclick="route('cart')">🛒 Cart</a>
+            <a href="#" class="nav-item" onclick="route('login')">🔐 Login</a>
+            <a href="#" class="nav-item" onclick="route('signup')">📝 Sign Up</a>
+            <a href="#" class="nav-item" onclick="route('contact')">📞 Contact Us</a>
+            <a href="#" class="nav-item" onclick="route('about')">ℹ️ About Us</a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <tr>
+                    <td>Mango Pickle</td>
+                    <td>₹150.00</td>
+                    <td><input type="number" value="1" min="1" max="10"></td>
+                    <td id="item-subtotal">₹150.00</td>
+                    <td><button class="remove-btn">Remove</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3">Total</td>
+                    <td id="cart-total">$10.00</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button class="checkout-btn">Proceed to Checkout</button>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Pickle Paradise | For Pickle Lovers</p>
+    </footer>
+    <script src="index.js"></script>
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const tbody = document.getElementById("cart-items");
+            tbody.innerHTML = "";
+            cart.forEach((item, index) => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>₹${item.price.toFixed(2)}</td>
+                    <td><input type="number" value="${item.quantity}" min="1" max="10" data-index="${index}"></td>
+                    <td>₹${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="remove-btn" data-index="${index}">Remove</button></td>
+                    `;
+
+                tbody.appendChild(row);
+            });
+
+            updateCartTotal();
+        }
+
+        // Total calculation
+        function updateCartTotal() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById("cart-total").textContent = `₹${total.toFixed(2)}`;
+        }
+
+        // Quantity change
+        document.addEventListener("change", function (e) {
+            if (e.target.matches('input[type="number"]')) {
+                const index = e.target.dataset.index;
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart[index].quantity = parseInt(e.target.value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                loadCart();
+            }
+        });
+
+        // Remove item
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-btn")) {
+                const index = e.target.dataset.index;
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                loadCart();
+            }
+        });
+
+        document.querySelector('.checkout-btn').addEventListener('click', function () {
+            alert('Proceeding to checkout...');
+        });
+
+        loadCart();
+    </script>
+</body>
+
+</html>

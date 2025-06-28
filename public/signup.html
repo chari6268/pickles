@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Made Pickles & Snacks</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .signup-form {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .signup-form .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .signup-form label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #7c4d03;
+        }
+
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"] {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid #e0c68a;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #fffdfa;
+            transition: border 0.2s;
+        }
+
+        .signup-form input:focus {
+            border-color: #ffb300;
+            outline: none;
+        }
+
+        .signup-btn {
+            background: linear-gradient(90deg, #ffb300 60%, #ff8c00 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .signup-btn:hover {
+            background: linear-gradient(90deg, #ff8c00 60%, #ffb300 100%);
+        }
+
+        .signup-container h2 {
+            color: #b26a00;
+            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .signup-container p {
+            margin-top: 18px;
+            font-size: 1rem;
+            color: #7c4d03;
+        }
+
+        .signup-container a {
+            color: #ff8c00;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .signup-container a:hover {
+            color: #b26a00;
+        }
+    </style>
+</head>
+<body>
+    <div class="pickle-bg"></div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div>
+                    <h1 class="site-title">Home Made Pickles & Snacks</h1>
+                    <p class="tagline">Taste the Best, Straight from Tradition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="#" class="nav-item" onclick="route('home')">🏠 Home</a>
+            <a href="#" class="nav-item" onclick="route('veg-pickles')">🥒 Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('non-veg-pickles')">🍖 Non-Veg Pickles</a>
+            <a href="#" class="nav-item" onclick="route('snacks')">🍿 Snacks</a>
+            <a href="#" class="nav-item" onclick="route('cart')">🛒 Cart</a>
+            <a href="#" class="nav-item" onclick="route('login')">🔐 Login</a>
+            <a href="#" class="nav-item" onclick="route('signup')">📝 Sign Up</a>
+            <a href="#" class="nav-item" onclick="route('contact')">📞 Contact Us</a>
+            <a href="#" class="nav-item" onclick="route('about')">ℹ️ About Us</a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="signup-container"></div>
+            <h2>Sign Up</h2>
+            <form class="signup-form" id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input type="text" id="signupName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="route('login')">Login here</a>.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Pickle Paradise | For Pickle Lovers</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
