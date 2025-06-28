@@ -11,7 +11,7 @@
 git clone https://github.com/chari6268/pickles.git
 
 # Navigate to the project directory
-cd pickles
+cd file-name
 
 # Install dependencies
 npm i
